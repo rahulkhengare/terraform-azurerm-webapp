@@ -3,7 +3,7 @@
 # ###############
 
 variable "name" {
-  description = "The name of the function app"
+  description = "The name of the web app"
 }
 
 variable "resource_group_name" {
@@ -32,18 +32,13 @@ variable "plan_settings" {
 }
 
 variable "service_plan_name" {
-  description = "The name of the App Service Plan, default = $function_app_name"
+  description = "The name of the App Service Plan, default = $web_app_name"
   default     = ""
 }
 
 variable "app_settings" {
   description = "A key-value pair of App Settings"
   default     = {}
-}
-
-variable "client_affinity_enabled" {
-  description = "Enable client affinity a.k.a. sticky sessions"
-  default     = false
 }
 
 variable "site_config" {

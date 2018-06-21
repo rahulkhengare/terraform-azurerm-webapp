@@ -14,7 +14,7 @@ Terraform Azure RM WebApp Module
 ## Usage
 
 
-Deploy a function app in consumption plan with git deployment enabled:
+Deploy a webapp with default settings:
 
 ```
 module "linuxwebapp" {
@@ -28,7 +28,51 @@ site_url = https://testmelinuxwebapp.azurewebsites.net
 name    = testmelinuxwebapp
 ```
 
+Deploy a webapp with customize web service plan settings
+```
+module "linuxwebapp" {
+    source              = "rahulkhengare/webapp/azurerm"
+    name                = "testmelinuxwebapp"
+    resource_group_name = "testwebappRG"
+    plan_settings       = {
+                             kind     = "Linux" # Linux or Windows
+                             size     = "S2"
+                             capacity = 1
+                             tier     = "Standard"
+                          }
+}
+
+Outputs:
+site_url = https://testmelinuxwebapp.azurewebsites.net
+name    = testmelinuxwebapp
+```
+
+
+Deploy a webapp with Java Environment
+
+```
+module "linuxwebapp" {
+    source              = "rahulkhengare/webapp/azurerm"
+    name                = "testmelinuxwebapp"
+    resource_group_name = "testwebappRG"
+    site_config         = {
+                            java_version           = "1.8"
+                            java_container         = "JETTY"
+                            java_container_version = "9.3"
+                          }
+}
+
+Outputs:
+site_url = https://testmelinuxwebapp.azurewebsites.net
+name    = testmelinuxwebapp
+```
+
+
 ## Changelog
+
+### `v0.1.0`
+
+- Removed Default site_config settings as it gives permission error after site deployment for .NET environment 
 
 ## License
 

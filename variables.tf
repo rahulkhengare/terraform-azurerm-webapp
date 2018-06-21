@@ -45,9 +45,5 @@ variable "site_config" {
   description = "A key-value pair for Site Config"
   type        = "list"
 
-  default = [{
-    always_on = true
-    dotnet_framework_version = "v4.0"
-    scm_type                 = "None"
-  }]
+  default = []
 }

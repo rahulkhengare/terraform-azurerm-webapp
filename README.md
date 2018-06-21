@@ -55,11 +55,11 @@ module "linuxwebapp" {
     source              = "rahulkhengare/webapp/azurerm"
     name                = "testmelinuxwebapp"
     resource_group_name = "testwebappRG"
-    site_config         = {
+    site_config         = [{
                             java_version           = "1.8"
                             java_container         = "JETTY"
                             java_container_version = "9.3"
-                          }
+                          }]
 }
 
 Outputs:

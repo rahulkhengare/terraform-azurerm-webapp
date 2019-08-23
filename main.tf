@@ -17,6 +17,8 @@ resource "azurerm_app_service_plan" "webserviceplan" {
   resource_group_name = "${azurerm_resource_group.webapp.name}"
   
   kind                = "${var.plan_settings["kind"]}"
+
+  reserved            = "${var.plan_settings["reserved"]}"
   
   sku {
     tier     = "${var.plan_settings["tier"]}"

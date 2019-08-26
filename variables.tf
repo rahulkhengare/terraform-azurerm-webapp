@@ -28,6 +28,7 @@ variable "plan_settings" {
     size     = "S1"
     capacity = 1
     tier     = "Standard"
+    reserved     = true
   }
 }
 
